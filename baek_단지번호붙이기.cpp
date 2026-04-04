@@ -49,6 +49,27 @@ void BFS (int row, int col, int size)
     return;
 }
 
+int DFS (int row, int col, int size)
+{
+    visited[row][col] = bundle;
+    int homes = 1;
+
+    for (int i = 0; i < 4; i++)
+    {
+        int nr = row + row_dir[i];
+        int nc = col + col_dir[i];
+
+        if (nr < 0 || nr >= size || nc < 0 || nc >= size) continue;
+
+        if (city[nr][nc] && !visited[nr][nc])
+        {
+            homes += DFS(nr, nc, size);
+        }
+    }
+
+    return homes;
+}
+
 int main ()
 {
     // 입출력 최적화
@@ -72,8 +93,15 @@ int main ()
     {
         for (int j = 0; j < n; j++)
         {
-            // 지금 지도에 집이 있고, 방문을 안한 곳이면 BFS
-            if (city[i][j] && !visited[i][j]) BFS(i, j, n);
+            // 지금 지도에 집이 있고, 방문을 안한 곳이면 탐색
+            if (city[i][j] && !visited[i][j])
+            {
+                // BFS(i, j, n);
+
+                int bundle_homes = DFS(i, j, n);
+                total_homes.push_back(bundle_homes);
+                bundle += 1;
+            }
         }
     }
 
