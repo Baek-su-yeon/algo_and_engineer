@@ -3,7 +3,7 @@
 // DFS는 재귀로 해도 될 것 같구만.....
 
 // DFS의 시간 복잡도: O(V + E), 그래프 탐색의 시간 복잡도는 보통 정점(V)과 간선(E)의 합
-// E = $$E = \frac{V(V-1)}{2} = \frac{100 \times 99}{2} = 4,950$$
+// $$E = \frac{V(V-1)}{2} = \frac{100 \times 99}{2} = 4,950$$
 
 #include <iostream>
 #include <vector>
