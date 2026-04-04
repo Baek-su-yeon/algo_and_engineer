@@ -9,7 +9,7 @@ bool visited[100][100];
 int row_dir[4] = {-1, 1, 0, 0}; // 상, 하, 좌, 우
 int col_dir[4] = {0, 0, -1, 1}; // 상, 하, 좌, 우
 
-void DFS(vector<vector<string>>& art, int row, int col, int size)
+void DFS(vector<vector<char>>& art, int row, int col, int size)
 {
     visited[row][col] = true;
 
