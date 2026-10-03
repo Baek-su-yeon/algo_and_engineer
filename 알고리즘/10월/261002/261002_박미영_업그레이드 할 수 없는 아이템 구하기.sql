@@ -1,0 +1,10 @@
+-- 코드를 작성해주세요
+-- 더 이상 업그레이드할 수 없는 아이템의 아이템 ID, 아이템 명, 아이템의 희귀도 출력
+-- 아이템 ID 내림차순
+
+SELECT A.ITEM_ID, ITEM_NAME, RARITY
+FROM ITEM_INFO AS A
+LEFT JOIN ITEM_TREE AS B
+ON A.ITEM_ID = B.PARENT_ITEM_ID
+WHERE B.PARENT_ITEM_ID IS NULL
+ORDER BY A.ITEM_ID DESC;
